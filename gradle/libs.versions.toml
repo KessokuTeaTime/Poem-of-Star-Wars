@@ -1,6 +1,6 @@
 [versions]
 maven-group = "band.kessokuteatime"
-archives-name = "modid"
+archives-name = "poemofstarwars"
 mod = "1.0.0"
 loader = "fabric"
 
@@ -16,7 +16,7 @@ id-modrinth = "id"
 id-curseforge = "id"
 
 # display
-display-name = "Example"
+display-name = "Poem o' Star Wars"
 display-loader = "Fabric"
 display-version = "1.20.x"
 

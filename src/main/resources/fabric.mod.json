@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "poemofstarwars",
   "version": "${version}",
 
   "name": "${display.name}",
@@ -11,8 +11,8 @@
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/modid",
-    "sources": "https://github.com/KessokuTeaTime/Example-Mod",
-    "issues": "https://github.com/KessokuTeaTime/Example-Mod/issues"
+    "sources": "https://github.com/KessokuTeaTime/Poem-of-Star-Wars",
+    "issues": "https://github.com/KessokuTeaTime/Poem-of-Star-Wars/issues"
   },
 
   "license": "GPL-3.0",
@@ -21,7 +21,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-	    "band.kessoku.modid.ExampleMod"
+      "band.kessokuteatime.poemofstarwars.PoemOfStarWars"
     ]
   },
   "mixins": [

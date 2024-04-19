@@ -1,8 +1,6 @@
-### <p align=right>[`→` Modrinth](https://modrinth.com/mod/modid)</p>
+### <p align=right>[`→` CurseForge](https://www.curseforge.com/minecraft/mc-mods/modid)&ensp;[`→` Modrinth](https://modrinth.com/mod/modid)</p>
 
-# Example Mod
-
-This is an example mod.
+# Poem o' Star Wars
 
 ## License
 
