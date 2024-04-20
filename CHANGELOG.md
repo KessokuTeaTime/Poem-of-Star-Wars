@@ -1,1 +1,1 @@
-Initial release.
+Move to client only.
