@@ -10,7 +10,7 @@
     "KrLite"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/modid",
+    "homepage": "https://modrinth.com/mod/",
     "sources": "https://github.com/KessokuTeaTime/Poem-of-Star-Wars",
     "issues": "https://github.com/KessokuTeaTime/Poem-of-Star-Wars/issues"
   },
@@ -25,7 +25,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "poemofstarwars.mixins.json"
   ],
 
   "depends": {
