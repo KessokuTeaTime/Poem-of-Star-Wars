@@ -8,6 +8,8 @@ A long time ago in a galaxy far, far away...
 
 This means, you will see the texts in end poem and acknowledgements projected in a trapezoid perspective:
 
+![screenshot](https://github.com/KessokuTeaTime/Poem-of-Star-Wars/blob/artwork/content/screenshot.png?raw=true)
+
 May the force be with you!
 
 ## License
