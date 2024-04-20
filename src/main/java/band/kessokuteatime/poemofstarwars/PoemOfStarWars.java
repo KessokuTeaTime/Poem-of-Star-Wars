@@ -2,6 +2,7 @@ package band.kessokuteatime.poemofstarwars;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.systems.VertexSorter;
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
@@ -12,12 +13,13 @@ import org.joml.Vector2d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PoemOfStarWars implements ModInitializer {
+public class PoemOfStarWars implements ClientModInitializer {
 	public static final String NAME = "Poem o' Star Wars", ID = "poemofstarwars";
 	public static final Logger LOGGER = LoggerFactory.getLogger(ID);
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
+		LOGGER.info("May the force be with you!");
 	}
 
 	public static void drawTilted(Framebuffer framebuffer) {

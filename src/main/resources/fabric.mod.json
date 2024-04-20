@@ -20,7 +20,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "band.kessokuteatime.poemofstarwars.PoemOfStarWars"
     ]
   },
