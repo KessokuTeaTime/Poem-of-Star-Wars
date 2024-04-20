@@ -1,4 +1,4 @@
-### <p align=right>[`→` CurseForge](https://www.curseforge.com/minecraft/mc-mods/modid)&ensp;[`→` Modrinth](https://modrinth.com/mod/modid)</p>
+### <p align=right>[`→` CurseForge](https://www.curseforge.com/minecraft/mc-mods/poem-of-star-wars)&ensp;[`→` Modrinth](https://modrinth.com/mod/poem-of-star-wars)</p>
 
 # Poem o' Star Wars
 
