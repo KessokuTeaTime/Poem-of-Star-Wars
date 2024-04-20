@@ -4,7 +4,7 @@
 
 A long time ago in a galaxy far, far away...
 
-**Poem o' Star Wars** presents you a **Star Wars** movie series' opening styled credits screen!
+**Poem o' Star Wars** makes your credit screens styled like the **Star Wars** series' movie openings!
 
 This means, you will see the texts in end poem and acknowledgements projected in a trapezoid perspective:
 
