@@ -53,16 +53,10 @@ public class PoemOfStarWars implements ModInitializer {
 		BufferBuilder builder = tessellator.getBuffer();
 		builder.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_TEXTURE_COLOR);
 
-		for (float y = 0; y < height; y++) {
-			float factor = y / height;
-			Vector2d
-					projectionLeft = perspectiveProjection(cameraDepth, -width / 2.0, height * , y * 3)
-						.add(width / 2.0, 0),
-					projectionRight = perspectiveProjection(cameraDepth, width / 2.0, height - y, y * 3)
-							.add(width / 2.0, 0);
-
-			whiteVertex(builder, projectionLeft.x(), height - projectionLeft.y(), 0, factor);
-			whiteVertex(builder, projectionRight.x(), height - projectionRight.y(), 1, factor);
+		for (float x = 0; x < width; x++) {
+			float factor = x / width, threshold = 0.45F;
+			whiteVertex(builder, width * factor, height, factor, 0);
+			whiteVertex(builder, width * (threshold + factor * (1 - 2 * threshold)), height * 0.2, factor, 1);
 		}
 
 		BufferRenderer.draw(builder.end());
@@ -75,11 +69,5 @@ public class PoemOfStarWars implements ModInitializer {
 
 	private static void whiteVertex(BufferBuilder builder, double x, double y, float u, float v) {
 		builder.vertex(x, y, 0).texture(u, v).color(255, 255, 255, 255).next();
-	}
-
-	private static Vector2d perspectiveProjection(double cameraDepth, double x, double y, double depth) {
-		double pixelDepth = depth + cameraDepth;
-
-		return new Vector2d(x, y).mul(cameraDepth / pixelDepth);
 	}
 }
