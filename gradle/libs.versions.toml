@@ -1,7 +1,7 @@
 [versions]
 maven-group = "band.kessokuteatime"
 archives-name = "poemofstarwars"
-mod = "1.0.0"
+mod = "1.0.1"
 loader = "fabric"
 
 minecraft = "1.20.2"
