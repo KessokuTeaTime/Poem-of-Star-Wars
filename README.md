@@ -10,7 +10,7 @@ This means, you will see the texts in end poem and acknowledgements projected in
 
 ![screenshot](https://github.com/KessokuTeaTime/Poem-of-Star-Wars/blob/artwork/content/screenshot-content-mc1.20.5.png?raw=true)
 
-> Star Wars layout works perfect with the new screen background in **Minecraft** `1.20.5+`.
+> Star Wars layout works amazingly well with the new screen background in **Minecraft** `1.20.5+`.
 
 May the force be with you!
 
