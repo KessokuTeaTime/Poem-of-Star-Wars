@@ -92,7 +92,7 @@ public class PoemOfStarWars implements ModInitializer {
 		RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
 		RenderSystem.setShaderTexture(0, textureId);
 
-		builder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+		builder.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_TEXTURE_COLOR);
 
 		for (int y = 0; y < height; y++) {
 			textureColor(

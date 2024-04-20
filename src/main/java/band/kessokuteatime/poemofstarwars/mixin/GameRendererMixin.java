@@ -48,14 +48,15 @@ public abstract class GameRendererMixin {
     )
     private void render(float f, long l, boolean bl, CallbackInfo ci) {
         if (client.currentScreen != null && client.currentScreen.getClass() == CreditsScreen.class) {
-            System.out.println("Drawing");
-
             context.getMatrices().push();
 
+            PoemOfStarWars.drawTilted(context, PoemOfStarWars.intBuffer());
+
+            /*
             BufferBuilder builder = Tessellator.getInstance().getBuffer();
             Matrix4f matrix = context.getMatrices().peek().getPositionMatrix();
 
-            RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+            RenderSystem.setShader(GameRenderer::getPositionColorProgram);
             builder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
 
             builder.vertex(matrix, 0, 50, 0).color(1F, 1F, 1F, 1F).next();
@@ -64,6 +65,8 @@ public abstract class GameRendererMixin {
             builder.vertex(matrix, 0, 0, 0).color(1F, 1F, 1F, 1F).next();
 
             BufferRenderer.drawWithGlobalProgram(builder.end());
+
+             */
 
             context.getMatrices().pop();
         }
