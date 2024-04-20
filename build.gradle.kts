@@ -44,10 +44,6 @@ java {
 	withSourcesJar()
 }
 
-loom {
-	accessWidenerPath = file("src/main/resources/poemofstarwars.accesswidener")
-}
-
 tasks {
 	processResources {
 		filesMatching("fabric.mod.json") {

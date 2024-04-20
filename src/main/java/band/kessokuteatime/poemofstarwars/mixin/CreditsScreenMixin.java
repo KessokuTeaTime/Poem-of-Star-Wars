@@ -73,7 +73,7 @@ public abstract class CreditsScreenMixin {
             method = "render",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/screen/CreditsScreen;renderBackground(Lnet/minecraft/client/gui/DrawContext;)V",
+                    target = "Lnet/minecraft/client/gui/screen/Screen;render(Lnet/minecraft/client/gui/DrawContext;IIF)V",
                     shift = At.Shift.AFTER
             )
     )
