@@ -26,9 +26,9 @@ public class PoemOfStarWars implements ModInitializer {
 		int width = MinecraftClient.getInstance().getFramebuffer().textureWidth, height = MinecraftClient.getInstance().getFramebuffer().textureHeight;
 
 		RenderSystem.assertOnRenderThread();
-		RenderSystem.colorMask(true, true, true, false);
 		RenderSystem.disableCull();
 		RenderSystem.disableDepthTest();
+		RenderSystem.enableBlend();
 		RenderSystem.depthMask(false);
 		RenderSystem.viewport(0, 0, width, height);
 
@@ -53,10 +53,19 @@ public class PoemOfStarWars implements ModInitializer {
 		BufferBuilder builder = tessellator.getBuffer();
 		builder.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_TEXTURE_COLOR);
 
-		for (float x = 0; x < width; x++) {
-			float factor = x / width, threshold = 0.45F;
-			whiteVertex(builder, width * factor, height, factor, 0);
-			whiteVertex(builder, width * (threshold + factor * (1 - 2 * threshold)), height * 0.2, factor, 1);
+		double cameraDepth = 300, furthestDepth = 1080;
+		double levitation = furthestDepth / cameraDepth * 0.7, difference = furthestDepth - cameraDepth;
+
+		for (float y = 0; y < height; y++) {
+			float factor = y / height, opacity = (float) Math.pow(Math.min(1, 2 * (1 - factor)), 2);
+			Vector2d
+					projectionLeft = perspectiveProjection(cameraDepth, -width / 2.0, y * levitation, factor * difference)
+						.add(width / 2.0, 0),
+					projectionRight = perspectiveProjection(cameraDepth, width / 2.0, y * levitation, factor * difference)
+							.add(width / 2.0, 0);
+
+			whiteVertex(builder, projectionLeft.x(), height - projectionLeft.y(), 0, factor, opacity);
+			whiteVertex(builder, projectionRight.x(), height - projectionRight.y(), 1, factor, opacity);
 		}
 
 		BufferRenderer.draw(builder.end());
@@ -64,10 +73,15 @@ public class PoemOfStarWars implements ModInitializer {
 		shaderProgram.unbind();
 
 		RenderSystem.depthMask(true);
-		RenderSystem.colorMask(true, true, true, true);
 	}
 
-	private static void whiteVertex(BufferBuilder builder, double x, double y, float u, float v) {
-		builder.vertex(x, y, 0).texture(u, v).color(255, 255, 255, 255).next();
+	private static void whiteVertex(BufferBuilder builder, double x, double y, float u, float v, float opacity) {
+		builder.vertex(x, y, 0).texture(u, v).color(1, 1, 1, opacity).next();
+	}
+
+	private static Vector2d perspectiveProjection(double cameraDepth, double x, double y, double depth) {
+		double pixelDepth = depth + cameraDepth;
+
+		return new Vector2d(x, y).mul(cameraDepth / pixelDepth);
 	}
 }
