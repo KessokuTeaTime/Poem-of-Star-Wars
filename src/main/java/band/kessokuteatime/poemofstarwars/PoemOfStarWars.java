@@ -25,6 +25,7 @@ public class PoemOfStarWars implements ModInitializer {
 
 		RenderSystem.assertOnRenderThread();
 		RenderSystem.colorMask(true, true, true, false);
+		RenderSystem.disableCull();
 		RenderSystem.disableDepthTest();
 		RenderSystem.depthMask(false);
 		RenderSystem.viewport(0, 0, width, height);
@@ -48,12 +49,14 @@ public class PoemOfStarWars implements ModInitializer {
 		
 		Tessellator tessellator = RenderSystem.renderThreadTesselator();
 		BufferBuilder builder = tessellator.getBuffer();
-		builder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
-		
-		whiteVertex(builder, 0, height, 0, 0);
-		whiteVertex(builder, width, height, 1, 0);
-		whiteVertex(builder, width, 0, 1, 1);
-		whiteVertex(builder, 0, 0, 0, 1);
+		builder.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_TEXTURE_COLOR);
+
+		for (float y = 0; y < height; y++) {
+			float factor = y / height;
+
+			whiteVertex(builder, width * (0.5 - factor / 2), y, 0, 1 - factor);
+			whiteVertex(builder, width * (0.5 + factor / 2), y, 1, 1 - factor);
+		}
 
 		BufferRenderer.draw(builder.end());
 
