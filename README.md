@@ -8,7 +8,9 @@ A long time ago in a galaxy far, far away...
 
 This means, you will see the texts in end poem and acknowledgements projected in a trapezoid perspective:
 
-![screenshot](https://github.com/KessokuTeaTime/Poem-of-Star-Wars/blob/artwork/content/screenshot.png?raw=true)
+![screenshot](https://github.com/KessokuTeaTime/Poem-of-Star-Wars/blob/artwork/content/screenshot-content-mc1.20.5.png?raw=true)
+
+> Star Wars layout works perfect with the new screen background in **Minecraft** `1.20.5+`.
 
 May the force be with you!
 
