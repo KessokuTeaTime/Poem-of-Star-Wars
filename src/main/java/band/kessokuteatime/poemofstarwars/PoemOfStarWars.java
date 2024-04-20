@@ -8,7 +8,9 @@ import net.minecraft.client.gl.Framebuffer;
 import net.minecraft.client.gl.ShaderProgram;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.*;
+import net.minecraft.util.math.RotationAxis;
 import org.joml.Matrix4f;
+import org.joml.Vector2d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,9 +55,14 @@ public class PoemOfStarWars implements ModInitializer {
 
 		for (float y = 0; y < height; y++) {
 			float factor = y / height;
+			Vector2d
+					projectionLeft = perspectiveProjection(cameraDepth, -width / 2.0, height * , y * 3)
+						.add(width / 2.0, 0),
+					projectionRight = perspectiveProjection(cameraDepth, width / 2.0, height - y, y * 3)
+							.add(width / 2.0, 0);
 
-			whiteVertex(builder, width * (0.5 - factor / 2), y, 0, 1 - factor);
-			whiteVertex(builder, width * (0.5 + factor / 2), y, 1, 1 - factor);
+			whiteVertex(builder, projectionLeft.x(), height - projectionLeft.y(), 0, factor);
+			whiteVertex(builder, projectionRight.x(), height - projectionRight.y(), 1, factor);
 		}
 
 		BufferRenderer.draw(builder.end());
@@ -68,5 +75,11 @@ public class PoemOfStarWars implements ModInitializer {
 
 	private static void whiteVertex(BufferBuilder builder, double x, double y, float u, float v) {
 		builder.vertex(x, y, 0).texture(u, v).color(255, 255, 255, 255).next();
+	}
+
+	private static Vector2d perspectiveProjection(double cameraDepth, double x, double y, double depth) {
+		double pixelDepth = depth + cameraDepth;
+
+		return new Vector2d(x, y).mul(cameraDepth / pixelDepth);
 	}
 }
