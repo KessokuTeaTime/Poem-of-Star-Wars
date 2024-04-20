@@ -54,14 +54,14 @@ public class PoemOfStarWars implements ModInitializer {
 		builder.begin(VertexFormat.DrawMode.TRIANGLE_STRIP, VertexFormats.POSITION_TEXTURE_COLOR);
 
 		double cameraDepth = 300, furthestDepth = 1080;
-		double levitation = furthestDepth / cameraDepth * 0.7, difference = furthestDepth - cameraDepth;
+		double levitation = furthestDepth / cameraDepth * 0.85, difference = furthestDepth - cameraDepth;
 
 		for (float y = 0; y < height; y++) {
 			float factor = y / height, opacity = (float) Math.pow(Math.min(1, 2 * (1 - factor)), 2);
 			Vector2d
-					projectionLeft = perspectiveProjection(cameraDepth, -width / 2.0, y * levitation, factor * difference)
+					projectionLeft = perspectiveProjection(cameraDepth, -width * 0.65, y * levitation, factor * difference)
 						.add(width / 2.0, 0),
-					projectionRight = perspectiveProjection(cameraDepth, width / 2.0, y * levitation, factor * difference)
+					projectionRight = perspectiveProjection(cameraDepth, width * 0.65, y * levitation, factor * difference)
 							.add(width / 2.0, 0);
 
 			whiteVertex(builder, projectionLeft.x(), height - projectionLeft.y(), 0, factor, opacity);
