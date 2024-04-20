@@ -6,8 +6,7 @@
 	"mixins": [
 	],
 	"client": [
-		"CreditsScreenMixin",
-		"GameRendererMixin"
+		"CreditsScreenMixin"
 	],
 	"injectors": {
 		"defaultRequire": 0
