@@ -28,12 +28,15 @@ base {
 
 repositories {
 	mavenCentral()
+	maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
 	minecraft(libs.minecraft)
 	mappings(libs.yarn)
 	modImplementation(libs.bundles.fabric)
+
+	include(libs.equator.visual)
 }
 
 java {
@@ -41,6 +44,10 @@ java {
 	targetCompatibility = JavaVersion.VERSION_17
 
 	withSourcesJar()
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/poemofstarwars.accesswidener")
 }
 
 tasks {
