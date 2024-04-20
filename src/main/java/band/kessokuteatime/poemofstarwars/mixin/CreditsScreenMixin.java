@@ -1,19 +1,26 @@
 package band.kessokuteatime.poemofstarwars.mixin;
 
+import band.kessokuteatime.poemofstarwars.PoemOfStarWars;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.Framebuffer;
+import net.minecraft.client.gl.SimpleFramebuffer;
 import net.minecraft.client.gl.WindowFramebuffer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.CreditsScreen;
+import net.minecraft.client.render.*;
 import net.minecraft.util.math.RotationAxis;
+import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreditsScreen.class)
 public abstract class CreditsScreenMixin {
-    private Framebuffer framebuffer = new WindowFramebuffer(MinecraftClient.getInstance().getWindow().getFramebufferWidth(), MinecraftClient.getInstance().getWindow().getFramebufferHeight());
+    @Unique
+    private final Framebuffer framebuffer = new WindowFramebuffer(MinecraftClient.getInstance().getFramebuffer().textureWidth, MinecraftClient.getInstance().getFramebuffer().textureHeight);
 
     @Inject(
             method = "render",
@@ -23,7 +30,7 @@ public abstract class CreditsScreenMixin {
             )
     )
     private void beginWrite(DrawContext context, int i, int j, float f, CallbackInfo ci) {
-        framebuffer.beginWrite(true);
+        framebuffer.beginWrite(false);
     }
 
     @Inject(
@@ -36,5 +43,10 @@ public abstract class CreditsScreenMixin {
     )
     private void endWrite(DrawContext context, int i, int j, float f, CallbackInfo ci) {
         framebuffer.endWrite();
+        PoemOfStarWars.intBuffer(framebuffer);
+
+        context.getMatrices().push();
+        framebuffer.draw(500, 500);
+        context.getMatrices().pop();
     }
 }

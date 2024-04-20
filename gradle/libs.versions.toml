@@ -27,6 +27,7 @@ minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft
 yarn = { group = "net.fabricmc", name = "yarn", version.ref = "yarn" }
 fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
 fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api" }
+
 equator-visual = { group = "com.github.KrLite.Equator-v2", name = "Visual", version.ref = "equator" }
 
 [plugins]

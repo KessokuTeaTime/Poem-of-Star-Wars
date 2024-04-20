@@ -36,6 +36,8 @@ dependencies {
 	mappings(libs.yarn)
 	modImplementation(libs.bundles.fabric)
 
+	modImplementation(libs.equator.visual)
+
 	include(libs.equator.visual)
 }
 
