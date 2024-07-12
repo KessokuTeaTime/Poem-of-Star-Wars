@@ -1,1 +1,3 @@
-Move to client only.
+### Maintenance Update
+
+- **Supported** `1.21+`.
