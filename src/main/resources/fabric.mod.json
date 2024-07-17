@@ -3,7 +3,7 @@
   "id": "poemofstarwars",
   "version": "${version}",
 
-  "name": "${display.name}",
+  "name": "${display.name.get()}",
   "description": "Make Minecraft's end poem styled like the Star Wars opening.",
   "authors": [
     "Kessoku Tea Time",
